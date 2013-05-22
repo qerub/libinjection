@@ -97,7 +97,7 @@ def runtest(testname, flag=None):
 
     actual = actual.strip()
 
-    if actual != data[2]:
+    if actual.upper() != data[2].upper():
         print "INPUT: \n" + toascii(data[1])
         print
         print "EXPECTED: \n" + toascii(data[2])
