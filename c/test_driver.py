@@ -62,6 +62,8 @@ def runtest(testname):
     """
     data =  readtestdata(os.path.join('../tests', testname))
 
+    command = os.getenv('PARSER_CMD', './sqli')
+
     if os.environ.get('VALGRIND', None):
         args = ['valgrind',
                 '--gen-suppressions=no',
@@ -71,10 +73,10 @@ def runtest(testname):
                 '--track-origins=yes',
                 '--xml=yes',
                 '--xml-file=valgrind-'+ testname.replace('.txt', '.xml'),
-                './sqli', data[1]]
+                command, data[1]]
         actual = run(args)
     else:
-        actual = run(['./sqli', data[1]])
+        actual = run([command, data[1]])
 
     if actual.strip() != data[2].strip():
         print "INPUT: \n" + data[1]
