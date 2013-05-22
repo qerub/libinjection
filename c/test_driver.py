@@ -78,7 +78,7 @@ def runtest(testname):
     else:
         actual = run([command, data[1]])
 
-    if actual.strip() != data[2].strip():
+    if actual.strip().upper() != data[2].strip().upper():
         print "INPUT: \n" + data[1]
         print
         print "EXPECTED: \n" + data[2]
