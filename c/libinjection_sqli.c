@@ -1225,9 +1225,7 @@ int filter_fold(sfilter * sf)
 
     st_clear(&last_comment);
 
-    /* Skip all initial comments, right-parens ( and unary operators
-     *
-     */
+    /* Skip all initial comments, left-parens ( and unary operators */
     current = &(sf->tokenvec[0]);
     while (more) {
         more = libinjection_sqli_tokenize(sf, current);
