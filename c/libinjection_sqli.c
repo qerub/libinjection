@@ -1357,8 +1357,9 @@ int libinjection_is_string_sqli(sfilter * sql_state,
                     sql_state->reason = __LINE__;
                     return FALSE;
                 }
-                break;
         }
+
+        break;
     }  /* case 3 */
     case 5: {
         if (streq(sql_state->pat, "sosos")) {
@@ -1374,8 +1375,9 @@ int libinjection_is_string_sqli(sfilter * sql_state,
                 sql_state->reason = __LINE__;
                 return FALSE;
             }
-            break;
         }
+
+        break;
     } /* case 5 */
     } /* end switch */
 
